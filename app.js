@@ -1,8 +1,12 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3400;
 var path = require("path");
+
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -12,9 +16,7 @@ app.get("/", function(req, res) {
   });
 
 
-app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-});
+
 
 var cars = [
     {
@@ -34,7 +36,6 @@ var cars = [
         model: "model 3"
 
     }
-
   ];
 
   app.get("/api/cars", function(req, res) {
